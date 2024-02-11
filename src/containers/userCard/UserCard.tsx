@@ -26,8 +26,8 @@ const UserCard: React.FC<Props> = (props) => {
       listOfUsers.map((updatedUser: UserType) =>
         updatedUser.id === user.id
           ? { ...updatedUser, isLiked: !updatedUser.isLiked }
-          : updatedUser,
-      ),
+          : updatedUser
+      )
     );
 
     dispatch(setUsers(updatedListOfUsers));
@@ -49,7 +49,7 @@ const UserCard: React.FC<Props> = (props) => {
         <img
           className="rounded-full object-contain"
           src={`${user.avatar}`}
-          alt={`${user.first_name} ${user.last_name}'s photo`}
+          alt={`${user.first_name} ${user.last_name}`}
         />
       </div>
       <span className="mb-3 text-center text-[20px] text-black">{`${user.first_name} ${user.last_name}`}</span>

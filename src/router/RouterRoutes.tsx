@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import { useAppSelector } from "#store/store";
 import { RouterLocationsEnum } from "./Router";
 import ProtectedRoute, { ProtectedRouteProps } from "./ProtectedRoute";
 import MainPage from "#pages/MainPage";

@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from "#store/store";
+import { useAppSelector } from "#store/store";
 import GoBackButton from "#components/goBackButton";
 import SignOutButton from "#components/signOutButton";
 import { useState } from "react";
@@ -7,7 +7,7 @@ const UserPageHeader: React.FC = () => {
   const { activeUser } = useAppSelector((state) => state.userReducer);
   const { authEmail } = useAppSelector((state) => state.authReducer);
 
-  const [newPhotoURL, setNewPhotoURL] = useState<string | null>();
+  const [newPhotoURL, setNewPhotoURL] = useState<string | undefined>();
 
   const handleChangePhoto = (event: any) => {
     event.preventDefault();
@@ -31,14 +31,14 @@ const UserPageHeader: React.FC = () => {
           <img
             className="h-[100%] w-[100%] rounded-full object-cover"
             src={newPhotoURL ? newPhotoURL : activeUser?.avatar}
-            alt={`${activeUser?.first_name} ${activeUser?.last_name}'s photo`}
+            alt={`${activeUser?.first_name} ${activeUser?.last_name}`}
           />
         </div>
 
         <div className="flex flex-col items-center justify-center sm:items-start rounded-full">
           <h1 className="">{`${activeUser?.first_name} ${activeUser?.last_name}`}</h1>
           <h3 className="text-[20px] font-normal capitalize leading-[23.44px] text-white md:text-[24px] md:leading-[32px] lg:text-[32px] lg:leading-[37.5px]">{`${activeUser.role}`}</h3>
-          {authEmail && activeUser.email == authEmail && (
+          {authEmail && activeUser.email === authEmail && (
             <form className="flex flex-col">
               <label htmlFor="file" className="text-white">
                 Изменить фото

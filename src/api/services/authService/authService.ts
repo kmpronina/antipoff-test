@@ -1,10 +1,5 @@
 import { api } from "./constants";
-import {
-  AuthRequestType,
-  AuthResponseErrorType,
-  AuthResponseType,
-} from "#models/authTypes";
-import { AuthMethodsReturnType } from "#hooks/useAuth";
+import { AuthRequestType } from "#models/authTypes";
 
 export const signUp = async (signUpData: AuthRequestType) => {
   const rawData = await fetch(`${api}register`, {
@@ -16,7 +11,3 @@ export const signUp = async (signUpData: AuthRequestType) => {
   });
   return rawData.json();
 };
-
-// const checkIsError = (response: any) => {
-//   return response.ok ? response.json() : Promise.reject(response.status)
-//   }
