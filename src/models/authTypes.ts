@@ -6,6 +6,7 @@ export type AuthRequestType = {
 export type AuthResponseType = {
   id: number;
   token: string;
+  email: string;
 };
 
 export type AuthResponseErrorType = {

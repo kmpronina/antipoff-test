@@ -7,7 +7,6 @@ import AuthorizationPage from "#pages/AuthorizationPage";
 import UserPage from "#pages/UserPage";
 
 const RouterRoutes = () => {
-  const { authData } = useAppSelector((state) => state.authReducer);
   const authDataFromStorage = localStorage.getItem("authData");
 
   const defaultProtectedRouteProps: Omit<ProtectedRouteProps, "outlet"> = {

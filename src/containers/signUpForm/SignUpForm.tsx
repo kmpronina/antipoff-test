@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-import { setAuthData } from "#store/reducers/authReducer";
+import { setAuthData, setAuthEmail } from "#store/reducers/authReducer";
 import { useAppDispatch } from "#store/store";
 import { RouterLocationsEnum } from "#router/Router";
 import useAuth from "#hooks/useAuth";
@@ -44,6 +44,7 @@ const SignUpForm: React.FC = () => {
     if (isSuccess) {
       localStorage.setItem("authData", JSON.stringify(dataFromResponse));
       dispatch(setAuthData(dataFromResponse));
+      dispatch(setAuthEmail(dataFromResponse.email));
       navigation(RouterLocationsEnum.main);
       formik.resetForm();
     }
