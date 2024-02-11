@@ -43,8 +43,8 @@ const EyeIcon: React.FC<Props> = (props) => {
       <path
         d="M4 4L20 20"
         stroke="#808185"
-        stroke-width="1.5"
-        stroke-linecap="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
       />
     </svg>
   );

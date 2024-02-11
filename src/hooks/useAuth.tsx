@@ -7,12 +7,13 @@ export type AuthMethodsReturnType = {
   dataFromResponse: {
     id: number;
     token: string;
+    email: string;
   };
 };
 
 const useAuth = () => {
   const mockedAuth = async (
-    data: AuthRequestType,
+    data: AuthRequestType
   ): Promise<AuthMethodsReturnType> => {
     const responseData = await signUp(data);
 
@@ -22,6 +23,7 @@ const useAuth = () => {
       dataFromResponse: {
         id: responseData.id,
         token: responseData.token,
+        email: data.email,
       },
     };
   };
